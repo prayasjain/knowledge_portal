@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>post</title></head>
+<body>
+<form action="" method="POST" class="form">
+{% csrf_token %}
+<input name="title" type="text" class="form-control" placeholder="Title here..." rows="7"></input>
+<textarea name="abstract" class="form-control" placeholder="Abstract here..." rows="7"></textarea>
+<input name="links" type="text" class="form-control" placeholder="Links here..." rows="7"></input>
+<input name="tags" type="text" class="form-control" placeholder="Links here..." rows="7"></input>
+<input type="file" class="" id="ppt" name="image"></input>
+    <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+

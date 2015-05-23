@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+	<head>
+	<title>knowledge portal</title>
+	</head>
+<body>
+{% for content in content_list %}
+    {{ content.title }}<br/>
+{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if content_list.has_previous %}
+            <a href="?page={{ content_list.previous_page_number }}">previous</a>
+        {% endif %}
+    <span class="current">
+        Page {{ content_list.number }} of {{ content_list.num_pages }},
+
+    </span>
+        {% if content_list.has_next %}
+            <a href="?page={{ content_list.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+</body>
+</html>
