@@ -15,13 +15,15 @@ def index(request):
         contents = Content.objects.all()
         pagination = Paginator(contents, 3)
         page = request.GET.get('page')
+	page_list = []
         try:
             content_list = pagination.page(page)
+	    page_list = range(1,content_list.paginator.num_pages+1)
         except PageNotAnInteger:
             content_list = pagination.page(1)
         except EmptyPage:
             content_list = pagination.page(pagination.num_pages)
-        return render(request,'content/index.html',{'content_list' : content_list})
+        return render(request,'content/home.html',{'content_list' : content_list,'page_list': page_list})
 def post(request):
     if(request.method == 'POST'):
         title = request.POST['title']
@@ -32,7 +34,7 @@ def post(request):
         date = datetime.datetime.now()
         content = Content(title=title,tags=tags,abstract=abstract,image=image,links=links,date=date)
         content.save()
-        return render(request,'content/index.html',{})
+        return render(request,'content/home.html',{})
     else:
         return render(request,'content/publish.html',{})
 
