@@ -4,8 +4,17 @@ from django import forms
 from login.models import UserProfile
 
 class loginform(forms.ModelForm) :
-    password = forms.CharField(widget=forms.PasswordInput())
 
-    class meta :
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput())
+    fullname = forms.CharField(max_length=256)
+    email = forms.EmailField()
+    contact = forms.IntegerField()
+    linkedin = forms.CharField()
+    user_type = forms.CharField()
+    user_interests = forms.CharField()
+    education = forms.CharField()
+
+    class Meta :
         model = UserProfile
-        exclude= ()
+        fields = ('username','password','fullname','email','contact','linkedin','user_type','user_interests','education')

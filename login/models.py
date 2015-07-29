@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.
 
-    username = models.TextField(unique=True,max_length=256)
+    username = models.TextField(unique=True)
     fullname = models.TextField(max_length=256)
     email = models.EmailField()
     contact = models.BigIntegerField()
