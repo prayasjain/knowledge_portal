@@ -18,3 +18,9 @@ class loginform(forms.ModelForm) :
     class Meta :
         model = UserProfile
         fields = ('username','password','fullname','email','contact','linkedin','user_type','user_interests','education')
+
+class account_loginform(forms.Form):
+
+    username = forms.CharField()
+    password =forms.CharField(widget=forms.PasswordInput())
+
