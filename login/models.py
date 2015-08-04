@@ -15,10 +15,10 @@ class UserProfile(models.Model):
     user_type = models.TextField()
     user_interests = models.TextField()
     education = models.TextField()
-    password = models.CharField()
+    password = models.TextField()
     slug = models.SlugField(unique=True,default='')
     def save(self, *args, **kwargs):
-                self.slug = slugify(self.user.username)
+                self.slug = slugify(self.username)
                 super(UserProfile, self).save(*args, **kwargs)
 
     # Override the __unicode__() method to return out something meaningful!

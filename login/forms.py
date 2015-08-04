@@ -6,7 +6,7 @@ from login.models import UserProfile
 class loginform(forms.ModelForm) :
 
     username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput(),max_length=128)
     fullname = forms.CharField(max_length=256)
     email = forms.EmailField()
     contact = forms.IntegerField()

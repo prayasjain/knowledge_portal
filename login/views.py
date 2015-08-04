@@ -34,9 +34,8 @@ def register(request) :
         if (request.method=='POST') :
             user_form = loginform(data=request.POST)
             if user_form.is_valid() :
-                user = user_form.save()
-                user.set_password(user.password)
-                user.save()
+                user_form.save()
+
                 registered=True
             else :
                 print user_form.errors
